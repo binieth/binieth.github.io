@@ -1,0 +1,65 @@
+===================================================================
+ HOW TO WRITE A NEW POST  —  Bini's blog
+===================================================================
+
+You only ever work in ONE folder:  posts-source\
+You never touch any HTML. You just write, then double-click build.
+
+-------------------------------------------------------------------
+ STEP 1 — Make a new text file
+-------------------------------------------------------------------
+Go into the  posts-source\  folder.
+Copy an existing file (for example  why-we-dont-do-halloween.md )
+and give the copy a new name, using dashes instead of spaces, e.g.:
+
+    the-day-you-were-born.md
+
+The file name becomes the web address, so keep it simple and lowercase.
+
+-------------------------------------------------------------------
+ STEP 2 — Write your essay
+-------------------------------------------------------------------
+Open your new .md file in Notepad (right-click > Open with > Notepad).
+
+At the very top, fill in this little block (keep the three dashes):
+
+    ---
+    title: The Day You Were Born
+    date: October 25, 2026
+    excerpt: One or two sentences shown on the home page card.
+    ---
+
+Then just write below it. Normal writing. A blank line starts a new
+paragraph. That's all you need.
+
+Optional extras while writing:
+  ## A heading            ->  makes a section heading
+  > A line like this      ->  makes a nice indented quote
+  *a word*                ->  makes that word italic
+  — Dad                   ->  a line like this becomes the sign-off
+
+To make a post the big "featured" one on the home page, add these
+two lines inside the top block:
+    featured: true
+    tag: ★ Start here
+
+-------------------------------------------------------------------
+ STEP 3 — Build the site
+-------------------------------------------------------------------
+Save your file. Then double-click:  build.bat
+
+A black window opens for a second and closes. Done!
+Your new post now exists, and the home page lists it automatically
+(newest first).
+
+-------------------------------------------------------------------
+ STEP 4 — See it
+-------------------------------------------------------------------
+Open  index.html  in your browser to read it locally.
+When you're happy, upload the whole folder to GitHub (see README.md)
+and it goes live at https://binieth.github.io
+
+-------------------------------------------------------------------
+ That's the whole system. Write in posts-source, double-click build.
+ You never have to copy code or touch the formatting again.
+===================================================================

@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://binieth.github.io/sitemap.xml

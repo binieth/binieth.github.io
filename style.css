@@ -1,0 +1,247 @@
+/* ============================================================
+   Bini — warm & personal blog.  Redesigned 2026.
+   A quiet, beautiful place for letters, lessons, and memories.
+   ============================================================ */
+
+:root {
+  --bg:        #f7f0e6;   /* warm paper */
+  --bg-deep:   #f0e6d6;   /* slightly deeper paper for bands */
+  --bg-card:   #fffdfa;   /* card / article surface */
+  --ink:       #3a322a;   /* main text — warm dark brown */
+  --ink-soft:  #6d6258;   /* secondary text */
+  --ink-faint: #9b9086;   /* dates, meta */
+  --accent:    #c08a4e;   /* warm amber / gold */
+  --accent-dk: #9a6a34;   /* darker amber for hover */
+  --accent-soft:#e8d4b8;  /* soft gold tint */
+  --line:      #e4d8c6;   /* soft dividing lines */
+  --rule:      #ece2d2;   /* lighter rule */
+  --shadow-sm: 0 1px 2px rgba(90,65,35,.05), 0 4px 14px rgba(90,65,35,.06);
+  --shadow-md: 0 2px 6px rgba(90,65,35,.07), 0 14px 40px rgba(90,65,35,.10);
+  --serif:     "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Palatino, Georgia, "Times New Roman", serif;
+  --sans:      -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --read:      680px;   /* comfortable reading width */
+  --wide:      1080px;  /* wide homepage width */
+}
+
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--serif);
+  font-size: 19px;
+  line-height: 1.75;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+.wrap      { max-width: var(--wide); margin: 0 auto; padding: 0 32px; }
+.wrap-read { max-width: var(--read); margin: 0 auto; padding: 0 24px; }
+
+a { color: var(--accent-dk); }
+
+/* ============================================================
+   TOP BAR — slim, sticky, warm
+   ============================================================ */
+.topbar {
+  position: sticky; top: 0; z-index: 50;
+  background: rgba(247,240,230,.92);
+  border-bottom: 1px solid var(--line);
+}
+.topbar .wrap {
+  display: flex; align-items: center; justify-content: space-between;
+  height: 62px;
+}
+.brand {
+  font-size: 1.25rem; font-weight: 600; letter-spacing: .5px;
+  color: var(--ink); text-decoration: none;
+}
+.brand span { color: var(--accent); }
+.topnav { font-family: var(--sans); font-size: .8rem; text-transform: uppercase; letter-spacing: 1.5px; }
+.topnav a {
+  color: var(--ink-soft); text-decoration: none; margin-left: 26px;
+  padding-bottom: 3px; border-bottom: 2px solid transparent; transition: color .15s, border-color .15s;
+}
+.topnav a:hover { color: var(--accent-dk); border-bottom-color: var(--accent); }
+
+/* ============================================================
+   HERO — full-width, warm gradient, fills the screen
+   ============================================================ */
+.hero {
+  position: relative;
+  background:
+    radial-gradient(900px 420px at 78% -8%, rgba(192,138,78,.22), transparent 60%),
+    radial-gradient(700px 400px at 10% 110%, rgba(192,138,78,.12), transparent 55%),
+    linear-gradient(180deg, #f7f0e6 0%, #f3eadc 40%, #efe4d2 100%);
+  border-bottom: 1px solid var(--line);
+  overflow: hidden;
+}
+.hero::after {
+  /* subtle paper grain via layered dots — pure CSS, no external asset */
+  content: ""; position: absolute; inset: 0; pointer-events: none;
+  background-image: radial-gradient(rgba(154,106,52,.05) 1px, transparent 1px);
+  background-size: 22px 22px; opacity: .5;
+}
+.hero-inner {
+  position: relative; z-index: 1;
+  max-width: var(--wide); margin: 0 auto; padding: 96px 32px 104px;
+  text-align: center;
+}
+.hero .eyebrow {
+  font-family: var(--sans); font-size: .78rem; letter-spacing: 3px; text-transform: uppercase;
+  color: var(--accent-dk); margin: 0 0 22px;
+}
+.hero h1 {
+  font-size: clamp(2.6rem, 6vw, 4.4rem); line-height: 1.08; margin: 0 auto 22px;
+  max-width: 14ch; font-weight: 600; letter-spacing: .5px;
+}
+.hero .lede {
+  font-size: clamp(1.1rem, 2.2vw, 1.4rem); color: var(--ink-soft); font-style: italic;
+  max-width: 34ch; margin: 0 auto 36px; line-height: 1.6;
+}
+.hero .cta {
+  display: inline-block; font-family: var(--sans); font-size: .85rem; letter-spacing: 1px; text-transform: uppercase;
+  color: #fff; background: var(--accent-dk); text-decoration: none;
+  padding: 14px 30px; border-radius: 999px; box-shadow: var(--shadow-sm);
+  transition: transform .15s, background .15s;
+}
+.hero .cta:hover { background: var(--accent); transform: translateY(-2px); }
+
+/* ============================================================
+   WELCOME NOTE — warm card, offset to feel personal
+   ============================================================ */
+.section { padding: 72px 0; }
+.section-deep { background: var(--bg-deep); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+
+.welcome-card {
+  max-width: 760px; margin: 0 auto;
+  background: var(--bg-card);
+  border: 1px solid var(--line); border-left: 5px solid var(--accent);
+  border-radius: 14px; padding: 42px 46px; box-shadow: var(--shadow-md);
+}
+.welcome-card h2 { margin: 0 0 16px; font-size: 1.5rem; color: var(--accent-dk); }
+.welcome-card p { margin: 0 0 16px; color: var(--ink-soft); }
+.welcome-card p:last-child { margin-bottom: 0; }
+.welcome-card .sig { font-style: italic; color: var(--ink); margin-top: 20px; font-size: 1.1rem; }
+
+/* ============================================================
+   SECTION HEADING
+   ============================================================ */
+.heading {
+  text-align: center; max-width: 40ch; margin: 0 auto 48px;
+}
+.heading .kicker {
+  font-family: var(--sans); font-size: .75rem; letter-spacing: 3px; text-transform: uppercase;
+  color: var(--accent-dk); display: block; margin-bottom: 12px;
+}
+.heading h2 { font-size: 2rem; margin: 0; letter-spacing: .3px; }
+
+/* ============================================================
+   ARTICLE CARDS — grid that fills width, no dead space
+   ============================================================ */
+.post-grid {
+  max-width: var(--wide); margin: 0 auto;
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 28px;
+}
+.card {
+  background: var(--bg-card); border: 1px solid var(--line); border-radius: 14px;
+  padding: 30px 30px 26px; box-shadow: var(--shadow-sm);
+  transition: transform .18s, box-shadow .18s, border-color .18s;
+  display: flex; flex-direction: column;
+}
+.card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); border-color: var(--accent-soft); }
+.card .date {
+  font-family: var(--sans); font-size: .74rem; letter-spacing: 1.5px; text-transform: uppercase;
+  color: var(--ink-faint); margin-bottom: 12px;
+}
+.card h3 { margin: 0 0 12px; font-size: 1.5rem; line-height: 1.28; }
+.card h3 a { color: var(--ink); text-decoration: none; }
+.card h3 a:hover { color: var(--accent-dk); }
+.card p { margin: 0 0 18px; color: var(--ink-soft); font-size: 1rem; line-height: 1.7; flex-grow: 1; }
+.card .more {
+  font-family: var(--sans); font-size: .82rem; letter-spacing: .5px; color: var(--accent-dk); text-decoration: none;
+  align-self: flex-start;
+}
+.card .more:hover { text-decoration: underline; }
+
+/* Featured card spans full width and feels special */
+.card-featured {
+  grid-column: 1 / -1;
+  background:
+    linear-gradient(135deg, rgba(232,212,184,.5), rgba(255,253,250,.9) 60%);
+  border-left: 5px solid var(--accent);
+  display: grid; grid-template-columns: 1fr; gap: 6px; padding: 40px 44px;
+}
+.card-featured .tag {
+  font-family: var(--sans); font-size: .72rem; letter-spacing: 2px; text-transform: uppercase;
+  color: var(--accent-dk); margin-bottom: 8px;
+}
+.card-featured h3 { font-size: 2rem; }
+.card-featured p { font-size: 1.08rem; max-width: 62ch; }
+
+/* ============================================================
+   SINGLE ARTICLE
+   ============================================================ */
+.article-hero {
+  background: var(--bg-deep); border-bottom: 1px solid var(--line);
+  padding: 72px 0 56px; text-align: center;
+}
+.article-hero .date {
+  font-family: var(--sans); font-size: .78rem; letter-spacing: 2px; text-transform: uppercase;
+  color: var(--accent-dk); margin-bottom: 16px;
+}
+.article-hero h1 { font-size: clamp(2.1rem, 4.5vw, 3rem); line-height: 1.18; margin: 0 auto; max-width: 20ch; }
+
+article.post { padding: 56px 0 24px; }
+article.post p { margin: 0 0 24px; }
+article.post h2 { font-size: 1.6rem; margin: 44px 0 14px; }
+article.post blockquote {
+  margin: 34px 0; padding: 18px 26px;
+  background: var(--bg-deep); border-left: 4px solid var(--accent); border-radius: 0 10px 10px 0;
+  color: var(--ink); font-style: italic; font-size: 1.15rem;
+}
+article.post hr { border: none; border-top: 1px solid var(--line); margin: 44px 0; }
+.post-signoff { font-style: italic; color: var(--ink); margin-top: 36px; font-size: 1.15rem; }
+.back-link { display: inline-block; margin-top: 8px; font-family: var(--sans); font-size: .85rem; letter-spacing: .5px; color: var(--accent-dk); text-decoration: none; }
+.back-link:hover { text-decoration: underline; }
+
+/* ============================================================
+   ABOUT
+   ============================================================ */
+.about { padding: 56px 0 24px; }
+.about h1 { font-size: 2.2rem; margin: 0 0 24px; }
+.about p { margin: 0 0 20px; color: var(--ink-soft); }
+.about-sig { font-style: italic; color: var(--ink); font-size: 1.1rem; margin: 10px 0 28px; }
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+.site-footer {
+  margin-top: 40px; padding: 48px 0; background: var(--bg-deep);
+  border-top: 1px solid var(--line); text-align: center;
+  font-family: var(--sans); font-size: .82rem; color: var(--ink-faint);
+}
+.site-footer .heart { color: var(--accent); }
+
+
+/* ---------- Homepage writing band (welcome merged into hero) ---------- */
+.section-writing {
+  padding: 76px 0 84px;
+  background: var(--bg-deep);
+  border-top: 1px solid var(--line);
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (max-width: 680px) {
+  body { font-size: 18px; }
+  .hero-inner { padding: 72px 24px 80px; }
+  .welcome-card { padding: 30px 26px; }
+  .card-featured { padding: 30px 26px; }
+  .topnav a { margin-left: 16px; }
+  .section { padding: 54px 0; }
+}
