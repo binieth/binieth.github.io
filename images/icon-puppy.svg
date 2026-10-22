@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="48" height="48" role="img" aria-label="A friendly puppy">
+  <!-- ears -->
+  <path d="M13 16 Q9 10 14 7 Q18 12 17 19 Z" fill="#9a6a34"/>
+  <path d="M35 16 Q39 10 34 7 Q30 12 31 19 Z" fill="#9a6a34"/>
+  <!-- head -->
+  <circle cx="24" cy="23" r="13" fill="#c08a4e" stroke="#9a6a34" stroke-width="2"/>
+  <!-- muzzle -->
+  <ellipse cx="24" cy="29" rx="8" ry="6.5" fill="#f3e3c4"/>
+  <!-- eyes -->
+  <circle cx="19.5" cy="21" r="2.1" fill="#4a3320"/>
+  <circle cx="28.5" cy="21" r="2.1" fill="#4a3320"/>
+  <circle cx="20.1" cy="20.4" r="0.7" fill="#fff"/>
+  <circle cx="29.1" cy="20.4" r="0.7" fill="#fff"/>
+  <!-- nose + smile -->
+  <ellipse cx="24" cy="27" rx="2.4" ry="1.8" fill="#4a3320"/>
+  <path d="M24 29 Q24 32 21 32 M24 29 Q24 32 27 32" stroke="#8a5e30" stroke-width="1.6" fill="none" stroke-linecap="round"/>
+</svg>

@@ -67,39 +67,40 @@ a { color: var(--accent-dk); }
 .topnav a:hover { color: var(--accent-dk); border-bottom-color: var(--accent); }
 
 /* ============================================================
-   HERO — full-width, warm gradient, fills the screen
+   HERO — warm blended sky, storybook horizon along the bottom
    ============================================================ */
 .hero {
-  position: relative;
-  background:
-    radial-gradient(900px 420px at 78% -8%, rgba(192,138,78,.22), transparent 60%),
-    radial-gradient(700px 400px at 10% 110%, rgba(192,138,78,.12), transparent 55%),
-    linear-gradient(180deg, #f7f0e6 0%, #f3eadc 40%, #efe4d2 100%);
-  border-bottom: 1px solid var(--line);
-  overflow: hidden;
+  position: relative; border: none; overflow: hidden; padding: 0;
+  background: linear-gradient(180deg, #f7ead3 0%, #f7e3c8 55%, #f2d9b4 100%);
+}
+.hero-scene {
+  position: absolute; left: 0; right: 0; bottom: 0;
+  width: 100%; height: 300px;
+  display: block; object-fit: cover; object-position: center bottom;
+  z-index: 0; pointer-events: none;
 }
 .hero::after {
-  /* subtle paper grain via layered dots — pure CSS, no external asset */
-  content: ""; position: absolute; inset: 0; pointer-events: none;
-  background-image: radial-gradient(rgba(154,106,52,.05) 1px, transparent 1px);
-  background-size: 22px 22px; opacity: .5;
+  content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 90px; z-index: 1; pointer-events: none;
+  background: linear-gradient(180deg, rgba(240,230,214,0) 0%, #f0e6d6 100%);
 }
 .hero-inner {
-  position: relative; z-index: 1;
-  max-width: var(--wide); margin: 0 auto; padding: 96px 32px 104px;
+  position: relative; z-index: 2;
+  max-width: var(--wide); margin: 0 auto;
+  padding: 88px 32px 340px;
   text-align: center;
 }
+
 .hero .eyebrow {
   font-family: var(--sans); font-size: .78rem; letter-spacing: 3px; text-transform: uppercase;
   color: var(--accent-dk); margin: 0 0 22px;
 }
 .hero h1 {
   font-size: clamp(2.6rem, 6vw, 4.4rem); line-height: 1.08; margin: 0 auto 22px;
-  max-width: 14ch; font-weight: 600; letter-spacing: .5px;
+  max-width: 14ch; font-weight: 600; letter-spacing: .5px; color: #4a3a26;
 }
 .hero .lede {
-  font-size: clamp(1.1rem, 2.2vw, 1.4rem); color: var(--ink-soft); font-style: italic;
-  max-width: 34ch; margin: 0 auto 36px; line-height: 1.6;
+  font-size: clamp(1.1rem, 2.2vw, 1.4rem); color: #5e5038; font-style: italic;
+  max-width: 36ch; margin: 0 auto 34px; line-height: 1.6;
 }
 .hero .cta {
   display: inline-block; font-family: var(--sans); font-size: .85rem; letter-spacing: 1px; text-transform: uppercase;
@@ -227,6 +228,14 @@ article.post hr { border: none; border-top: 1px solid var(--line); margin: 44px 
 .site-footer .heart { color: var(--accent); }
 
 
+
+/* ---------- Storybook icon on each article card ---------- */
+.card h3 { position: relative; }
+.card .card-icon {
+  width: 34px; height: 34px; display: block; margin-bottom: 10px;
+}
+.card-featured .card-icon { width: 40px; height: 40px; }
+
 /* ---------- Homepage writing band (welcome merged into hero) ---------- */
 .section-writing {
   padding: 76px 0 84px;
@@ -237,11 +246,31 @@ article.post hr { border: none; border-top: 1px solid var(--line); margin: 44px 
 /* ============================================================
    RESPONSIVE
    ============================================================ */
+/* Tablet */
+@media (max-width: 920px) {
+  .hero-scene { height: 240px; }
+  .hero-inner { padding: 76px 28px 280px; }
+}
+
+/* Phone */
 @media (max-width: 680px) {
   body { font-size: 18px; }
-  .hero-inner { padding: 72px 24px 80px; }
-  .welcome-card { padding: 30px 26px; }
-  .card-featured { padding: 30px 26px; }
-  .topnav a { margin-left: 16px; }
-  .section { padding: 54px 0; }
+  .hero-scene { height: 180px; }
+  .hero-inner { padding: 56px 22px 210px; }
+  .hero h1 { font-size: clamp(2rem, 9vw, 2.8rem); }
+  .hero .lede { font-size: 1.05rem; max-width: 30ch; }
+  .card-featured { padding: 30px 24px; }
+  .topbar .wrap { height: 56px; }
+  .topnav a { margin-left: 14px; }
+  .section-writing { padding: 48px 0 60px; }
+  .post-grid { grid-template-columns: 1fr; }
+}
+
+/* Small phone */
+@media (max-width: 420px) {
+  .hero-scene { height: 150px; }
+  .hero-inner { padding: 48px 18px 172px; }
+  .brand { font-size: 1.1rem; }
+  .topnav { font-size: .72rem; }
+  .topnav a { margin-left: 10px; }
 }

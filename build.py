@@ -155,7 +155,7 @@ def article_page(meta, body_html):
 '''
 
 
-def card_html(p, featured=False):
+def card_html(p, featured=False, icon="images/icon-book.svg"):
     title = html.escape(p["title"])
     date  = html.escape(p["date"])
     exc   = html.escape(p["excerpt"])
@@ -163,6 +163,7 @@ def card_html(p, featured=False):
     if featured:
         tag = html.escape(p.get("tag", "\u2605 Start here"))
         return f'''        <article class="card card-featured">
+          <img class="card-icon" src="{icon}" alt="">
           <span class="tag">{tag}</span>
           <div class="date">{date}</div>
           <h3><a href="posts/{slug}.html">{title}</a></h3>
@@ -170,12 +171,12 @@ def card_html(p, featured=False):
           <a class="more" href="posts/{slug}.html">Read the letter \u2192</a>
         </article>'''
     return f'''        <article class="card">
+          <img class="card-icon" src="{icon}" alt="">
           <div class="date">{date}</div>
           <h3><a href="posts/{slug}.html">{title}</a></h3>
           <p>{exc}</p>
           <a class="more" href="posts/{slug}.html">Read the letter \u2192</a>
         </article>'''
-
 
 def index_page(cards_html):
     return f'''<!DOCTYPE html>
@@ -200,6 +201,7 @@ def index_page(cards_html):
   </div>
 
   <header class="hero">
+    <img class="hero-scene" src="images/hero-scene.svg" alt="A warm storybook landscape at golden hour with a little home and a glowing window nestled in gentle hills">
     <div class="hero-inner">
       <p class="eyebrow">A notebook for my children</p>
       <h1>Letters, lessons &amp; memories</h1>
@@ -283,7 +285,10 @@ def main():
     # everything else newest-first on top.
     normal   = [p for p in posts if not p["featured"]]
     featured = [p for p in posts if p["featured"]]
-    cards = [card_html(p) for p in normal] + [card_html(p, featured=True) for p in featured]
+    icons = ["images/icon-puppy.svg", "images/icon-star.svg",
+             "images/icon-heart.svg", "images/icon-book.svg", "images/icon-candle.svg"]
+    cards = [card_html(p, icon=icons[i % len(icons)]) for i, p in enumerate(normal)]
+    cards += [card_html(p, featured=True, icon="images/icon-puppy.svg") for p in featured]
 
     open(INDEX, "w", encoding="utf-8").write(index_page("\n\n".join(cards)))
     print(f"  built  index.html  ({len(posts)} post(s) total)")

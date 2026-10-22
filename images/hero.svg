@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 420" width="1200" height="420" role="img" aria-label="A warm storybook scene: gentle hills, a small home with a glowing window, trees, and a soft sun.">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#fcf4e8"/>
+      <stop offset="1" stop-color="#f6e7cf"/>
+    </linearGradient>
+    <radialGradient id="sun" cx="50%" cy="50%" r="50%">
+      <stop offset="0" stop-color="#f4c871"/>
+      <stop offset="1" stop-color="#f4c871" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="hillA" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#e3c89a"/>
+      <stop offset="1" stop-color="#d8b985"/>
+    </linearGradient>
+    <linearGradient id="hillB" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#cdb07f"/>
+      <stop offset="1" stop-color="#bfa06c"/>
+    </linearGradient>
+  </defs>
+
+  <!-- sky -->
+  <rect width="1200" height="420" fill="url(#sky)"/>
+
+  <!-- soft sun glow -->
+  <circle cx="930" cy="150" r="190" fill="url(#sun)"/>
+  <circle cx="930" cy="150" r="54" fill="#edb95a"/>
+
+  <!-- distant birds -->
+  <g stroke="#b58a4e" stroke-width="3" fill="none" stroke-linecap="round" opacity=".7">
+    <path d="M250 96 q12 -12 24 0 q12 -12 24 0"/>
+    <path d="M320 70 q10 -10 20 0 q10 -10 20 0"/>
+  </g>
+
+  <!-- back hill -->
+  <path d="M0 300 Q 300 210 620 280 T 1200 250 V420 H0 Z" fill="url(#hillB)"/>
+  <!-- front hill -->
+  <path d="M0 350 Q 340 270 700 330 T 1200 320 V420 H0 Z" fill="url(#hillA)"/>
+
+  <!-- little trees -->
+  <g>
+    <rect x="196" y="300" width="8" height="40" rx="3" fill="#8a5e30"/>
+    <circle cx="200" cy="292" r="30" fill="#8bae72"/>
+    <circle cx="178" cy="300" r="20" fill="#9cbd82"/>
+    <circle cx="222" cy="300" r="20" fill="#7fa46a"/>
+  </g>
+  <g>
+    <rect x="1016" y="312" width="7" height="34" rx="3" fill="#8a5e30"/>
+    <circle cx="1019" cy="305" r="24" fill="#8bae72"/>
+    <circle cx="1001" cy="312" r="16" fill="#9cbd82"/>
+  </g>
+
+  <!-- the little home with a glowing window -->
+  <g>
+    <!-- body -->
+    <rect x="520" y="250" width="150" height="96" rx="8" fill="#f7efe3" stroke="#c9ab7d" stroke-width="3"/>
+    <!-- roof -->
+    <path d="M506 252 L595 196 L684 252 Z" fill="#b5713f" stroke="#9a5e30" stroke-width="3" stroke-linejoin="round"/>
+    <!-- door -->
+    <rect x="566" y="300" width="36" height="46" rx="6" fill="#9a6a34"/>
+    <circle cx="595" cy="324" r="3" fill="#f4c871"/>
+    <!-- glowing window -->
+    <rect x="612" y="280" width="40" height="36" rx="5" fill="#f4c871" stroke="#c9ab7d" stroke-width="3"/>
+    <line x1="632" y1="280" x2="632" y2="316" stroke="#c9ab7d" stroke-width="2"/>
+    <line x1="612" y1="298" x2="652" y2="298" stroke="#c9ab7d" stroke-width="2"/>
+    <!-- warm glow from window -->
+    <circle cx="632" cy="298" r="46" fill="#f4c871" opacity=".22"/>
+  </g>
+
+  <!-- foreground path -->
+  <path d="M560 420 Q 595 380 595 346 Q 595 380 630 420 Z" fill="#e7d3ae" opacity=".8"/>
+</svg>
