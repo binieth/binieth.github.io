@@ -7,6 +7,15 @@ HOW TO USE (you never edit this file):
   2. Double-click  build.bat  (or run:  python build.py ).
   3. Done. The styled pages and the homepage are regenerated.
 
+Each .md file starts with a small header. Example:
+  ---
+  title: The Day You Were Born
+  date: October 25, 2026
+  excerpt: One line shown on the homepage row.
+  image: images/posts/the-day-you-were-born.jpg   (optional thumbnail)
+  category: Memories                               (optional, for the sidebar filter)
+  ---
+
 It uses only Python's standard library, so there is nothing to install.
 """
 
@@ -17,13 +26,18 @@ import datetime
 
 # ---- Folders (relative to this script) -------------------------------------
 HERE   = os.path.dirname(os.path.abspath(__file__))
-SRC    = os.path.join(HERE, "posts-source")   # where you write .md files
-POSTS  = os.path.join(HERE, "posts")          # generated article pages
-INDEX  = os.path.join(HERE, "index.html")     # generated homepage
+SRC    = os.path.join(HERE, "posts-source")
+POSTS  = os.path.join(HERE, "posts")
+INDEX  = os.path.join(HERE, "index.html")
 
 AUTHOR = "Bini"
 
-# ---- The security + head block shared by every page ------------------------
+# Short About blurb shown in the sidebar (edit the text here if you like)
+ABOUT_BLURB = ("I'm Bini. This is my notebook — letters, lessons, and memories "
+               "I'm writing down for my children, one at a time.")
+# Fallback thumbnail when a post has no image: of the storybook icons
+DEFAULT_THUMB = "images/posts/_default.jpg"
+
 HEAD = '''  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!-- Security hardening (static-site friendly) -->
@@ -34,17 +48,10 @@ HEAD = '''  <meta charset="UTF-8">
 
 
 # ============================================================================
-#  A tiny Markdown reader.  Supports exactly what you need:
-#    ## Heading      -> <h2>
-#    > quote         -> <blockquote>
-#    *word*          -> <em>word</em>
-#    blank line      -> new paragraph
-#  Everything is HTML-escaped first, so your text is always safe.
+#  Tiny Markdown reader (## heading, > quote, *italic*, blank line = paragraph)
 # ============================================================================
 def parse_front_matter(text):
-    """Pull the title/date/excerpt block from the top of the file."""
-    meta = {}
-    body = text
+    meta, body = {}, text
     if text.startswith("---"):
         end = text.find("---", 3)
         if end != -1:
@@ -58,22 +65,18 @@ def parse_front_matter(text):
 
 
 def inline(text):
-    """Escape HTML, then turn *italics* into <em>."""
     text = html.escape(text)
     text = re.sub(r"\*(.+?)\*", r"<em>\1</em>", text)
     return text
 
 
 def md_to_html(body):
-    """Convert the essay body into clean HTML paragraphs/headings/quotes."""
     lines = body.splitlines()
-    out = []
-    para = []
+    out, para = [], []
 
     def flush():
         if para:
             joined = " ".join(l.strip() for l in para)
-            # sign-off line (— Dad) gets a special style
             if joined.strip().startswith("\u2014") and len(joined) < 40:
                 out.append(f'        <p class="post-signoff">{inline(joined)}</p>')
             else:
@@ -85,11 +88,9 @@ def md_to_html(body):
         if not s:
             flush()
         elif s.startswith("## "):
-            flush()
-            out.append(f"        <h2>{inline(s[3:])}</h2>")
+            flush(); out.append(f"        <h2>{inline(s[3:])}</h2>")
         elif s.startswith("> "):
-            flush()
-            out.append(f"        <blockquote>{inline(s[2:])}</blockquote>")
+            flush(); out.append(f"        <blockquote>{inline(s[2:])}</blockquote>")
         else:
             para.append(line)
     flush()
@@ -97,12 +98,35 @@ def md_to_html(body):
 
 
 # ============================================================================
-#  Page templates
+#  Templates
 # ============================================================================
+def topbar(prefix=""):
+    return f'''  <div class="topbar">
+    <div class="wrap">
+      <a class="brand" href="{prefix}index.html">{AUTHOR}<span>.</span></a>
+      <nav class="topnav">
+        <a href="{prefix}index.html">Home</a>
+        <a href="{prefix}index.html#writing">Writing</a>
+        <a href="{prefix}about.html">About</a>
+      </nav>
+    </div>
+  </div>'''
+
+
+def footer():
+    return f'''  <footer class="site-footer">
+    <div class="wrap">
+      <p>\u00a9 <span id="year"></span> {AUTHOR} \u00b7 Written with <span class="heart">\u2665</span> for my children.</p>
+    </div>
+  </footer>'''
+
+
 def article_page(meta, body_html):
     title = html.escape(meta.get("title", "Untitled"))
     date  = html.escape(meta.get("date", ""))
     desc  = html.escape(meta.get("excerpt", ""))
+    cat   = html.escape(meta.get("category", ""))
+    cat_html = f'<div class="article-cat">{cat}</div>' if cat else ""
     return f'''<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -113,19 +137,11 @@ def article_page(meta, body_html):
 </head>
 <body>
 
-  <div class="topbar">
-    <div class="wrap">
-      <a class="brand" href="../index.html">{AUTHOR}<span>.</span></a>
-      <nav class="topnav">
-        <a href="../index.html">Home</a>
-        <a href="../index.html#writing">Writing</a>
-        <a href="../about.html">About</a>
-      </nav>
-    </div>
-  </div>
+{topbar(prefix="../")}
 
   <header class="article-hero">
     <div class="wrap-read">
+      {cat_html}
       <div class="date">{date}</div>
       <h1>{title}</h1>
     </div>
@@ -143,11 +159,7 @@ def article_page(meta, body_html):
     </div>
   </main>
 
-  <footer class="site-footer">
-    <div class="wrap">
-      <p>\u00a9 <span id="year"></span> {AUTHOR} \u00b7 Written with <span class="heart">\u2665</span> for my children.</p>
-    </div>
-  </footer>
+{footer()}
 
   <script src="../script.js"></script>
 </body>
@@ -155,30 +167,52 @@ def article_page(meta, body_html):
 '''
 
 
-def card_html(p, featured=False, icon="images/icon-book.svg"):
+def post_row(p):
+    """A horizontal blog row: thumbnail left, text right (Derek-Seaman style)."""
     title = html.escape(p["title"])
     date  = html.escape(p["date"])
     exc   = html.escape(p["excerpt"])
     slug  = p["slug"]
-    if featured:
-        tag = html.escape(p.get("tag", "\u2605 Start here"))
-        return f'''        <article class="card card-featured">
-          <img class="card-icon" src="{icon}" alt="">
-          <span class="tag">{tag}</span>
-          <div class="date">{date}</div>
-          <h3><a href="posts/{slug}.html">{title}</a></h3>
-          <p>{exc}</p>
-          <a class="more" href="posts/{slug}.html">Read the letter \u2192</a>
-        </article>'''
-    return f'''        <article class="card">
-          <img class="card-icon" src="{icon}" alt="">
-          <div class="date">{date}</div>
-          <h3><a href="posts/{slug}.html">{title}</a></h3>
-          <p>{exc}</p>
-          <a class="more" href="posts/{slug}.html">Read the letter \u2192</a>
+    img   = p["image"] or DEFAULT_THUMB
+    cat   = html.escape(p["category"]) if p["category"] else ""
+    cat_tag = f'<span class="row-cat">{cat}</span>' if cat else ""
+    data_cat = html.escape(p["category"].lower()) if p["category"] else "all"
+    return f'''        <article class="post-row" data-category="{data_cat}">
+          <a class="row-thumb" href="posts/{slug}.html">
+            <img src="{img}" alt="" loading="lazy">
+          </a>
+          <div class="row-body">
+            <div class="row-meta">{cat_tag}<span class="row-date">{date}</span></div>
+            <h3 class="row-title"><a href="posts/{slug}.html">{title}</a></h3>
+            <p class="row-excerpt">{exc}</p>
+            <a class="row-more" href="posts/{slug}.html">Read more \u2192</a>
+          </div>
         </article>'''
 
-def index_page(cards_html):
+
+def sidebar(categories):
+    opts = "\n".join(
+        f'            <option value="{html.escape(c.lower())}">{html.escape(c)}</option>'
+        for c in categories
+    )
+    return f'''      <aside class="sidebar">
+        <div class="side-card">
+          <h3 class="side-title">Browse by topic</h3>
+          <select id="categoryFilter" class="cat-select" aria-label="Filter posts by category">
+            <option value="all">All writing</option>
+{opts}
+          </select>
+        </div>
+
+        <div class="side-card">
+          <h3 class="side-title">About</h3>
+          <p class="side-about">{html.escape(ABOUT_BLURB)}</p>
+          <a class="side-link" href="about.html">Read more \u2192</a>
+        </div>
+      </aside>'''
+
+
+def index_page(rows_html, categories):
     return f'''<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -189,16 +223,7 @@ def index_page(cards_html):
 </head>
 <body>
 
-  <div class="topbar">
-    <div class="wrap">
-      <a class="brand" href="index.html">{AUTHOR}<span>.</span></a>
-      <nav class="topnav">
-        <a href="index.html">Home</a>
-        <a href="#writing">Writing</a>
-        <a href="about.html">About</a>
-      </nav>
-    </div>
-  </div>
+{topbar()}
 
   <header class="hero">
     <img class="hero-scene" src="images/hero-scene.svg" alt="A warm storybook landscape at golden hour with a little home and a glowing window nestled in gentle hills">
@@ -206,30 +231,22 @@ def index_page(cards_html):
       <p class="eyebrow">A notebook for my children</p>
       <h1>Letters, lessons &amp; memories</h1>
       <p class="lede">A quiet place where I write down what I've learned, the mistakes I've made, and the moments I never want to forget \u2014 one day, for my children.</p>
-      <a class="cta" href="#writing">Start reading</a>
     </div>
   </header>
 
   <section class="section-writing" id="writing">
-    <div class="wrap">
-      <div class="heading">
-        <span class="kicker">The Writing</span>
-        <h2>Pages from my binder</h2>
-      </div>
+    <div class="wrap blog-layout">
 
-      <div class="post-grid">
+      <main class="post-list-col">
+{rows_html}
+      </main>
 
-{cards_html}
+{sidebar(categories)}
 
-      </div>
     </div>
   </section>
 
-  <footer class="site-footer">
-    <div class="wrap">
-      <p>\u00a9 <span id="year"></span> {AUTHOR} \u00b7 Written with <span class="heart">\u2665</span> for my children.</p>
-    </div>
-  </footer>
+{footer()}
 
   <script src="script.js"></script>
 </body>
@@ -238,7 +255,7 @@ def index_page(cards_html):
 
 
 # ============================================================================
-#  Main build
+#  Build
 # ============================================================================
 def parse_date(s):
     for fmt in ("%B %d, %Y", "%b %d, %Y", "%Y-%m-%d"):
@@ -246,7 +263,7 @@ def parse_date(s):
             return datetime.datetime.strptime(s.strip(), fmt)
         except ValueError:
             pass
-    return datetime.datetime.min  # unknown dates sort last
+    return datetime.datetime.min
 
 
 def main():
@@ -263,35 +280,33 @@ def main():
         raw  = open(os.path.join(SRC, fn), encoding="utf-8").read()
         meta, body = parse_front_matter(raw)
 
-        body_html = md_to_html(body)
-        page = article_page(meta, body_html)
-        open(os.path.join(POSTS, slug + ".html"), "w", encoding="utf-8").write(page)
+        open(os.path.join(POSTS, slug + ".html"), "w", encoding="utf-8").write(
+            article_page(meta, md_to_html(body)))
 
         posts.append({
             "slug": slug,
             "title": meta.get("title", slug),
             "date": meta.get("date", ""),
             "excerpt": meta.get("excerpt", ""),
-            "featured": meta.get("featured", "").lower() == "true",
-            "tag": meta.get("tag", ""),
+            "image": meta.get("image", ""),
+            "category": meta.get("category", ""),
             "_sort": parse_date(meta.get("date", "")),
         })
         print(f"  built  posts/{slug}.html")
 
-    # newest first
     posts.sort(key=lambda p: p["_sort"], reverse=True)
 
-    # featured posts go last in the grid (they render full-width as an anchor);
-    # everything else newest-first on top.
-    normal   = [p for p in posts if not p["featured"]]
-    featured = [p for p in posts if p["featured"]]
-    icons = ["images/icon-puppy.svg", "images/icon-star.svg",
-             "images/icon-heart.svg", "images/icon-book.svg", "images/icon-candle.svg"]
-    cards = [card_html(p, icon=icons[i % len(icons)]) for i, p in enumerate(normal)]
-    cards += [card_html(p, featured=True, icon="images/icon-puppy.svg") for p in featured]
+    rows = "\n\n".join(post_row(p) for p in posts)
 
-    open(INDEX, "w", encoding="utf-8").write(index_page("\n\n".join(cards)))
-    print(f"  built  index.html  ({len(posts)} post(s) total)")
+    # unique categories, preserving first-seen order
+    cats = []
+    for p in posts:
+        c = p["category"]
+        if c and c not in cats:
+            cats.append(c)
+
+    open(INDEX, "w", encoding="utf-8").write(index_page(rows, cats))
+    print(f"  built  index.html  ({len(posts)} post(s), {len(cats)} categor(ies))")
     print("\nDone! Open index.html in your browser to see the result.")
 
 

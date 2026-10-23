@@ -19,7 +19,7 @@
       <a class="brand" href="index.html">Bini<span>.</span></a>
       <nav class="topnav">
         <a href="index.html">Home</a>
-        <a href="#writing">Writing</a>
+        <a href="index.html#writing">Writing</a>
         <a href="about.html">About</a>
       </nav>
     </div>
@@ -31,37 +31,55 @@
       <p class="eyebrow">A notebook for my children</p>
       <h1>Letters, lessons &amp; memories</h1>
       <p class="lede">A quiet place where I write down what I've learned, the mistakes I've made, and the moments I never want to forget — one day, for my children.</p>
-      <a class="cta" href="#writing">Start reading</a>
     </div>
   </header>
 
   <section class="section-writing" id="writing">
-    <div class="wrap">
-      <div class="heading">
-        <span class="kicker">The Writing</span>
-        <h2>Pages from my binder</h2>
-      </div>
+    <div class="wrap blog-layout">
 
-      <div class="post-grid">
-
-        <article class="card">
-          <img class="card-icon" src="images/icon-puppy.svg" alt="">
-          <div class="date">October 22, 2026</div>
-          <h3><a href="posts/what-i-couldnt-explain-when-you-were-four.html">What I Couldn&#x27;t Explain When You Were Four</a></h3>
-          <p>A short letter from Dad, for my little girl — about why our family brings light to the door, not darkness.</p>
-          <a class="more" href="posts/what-i-couldnt-explain-when-you-were-four.html">Read the letter →</a>
+      <main class="post-list-col">
+        <article class="post-row" data-category="faith">
+          <a class="row-thumb" href="posts/what-i-couldnt-explain-when-you-were-four.html">
+            <img src="images/posts/what-i-couldnt-explain-when-you-were-four.jpg" alt="" loading="lazy">
+          </a>
+          <div class="row-body">
+            <div class="row-meta"><span class="row-cat">Faith</span><span class="row-date">October 22, 2026</span></div>
+            <h3 class="row-title"><a href="posts/what-i-couldnt-explain-when-you-were-four.html">What I Couldn&#x27;t Explain When You Were Four</a></h3>
+            <p class="row-excerpt">A short letter from Dad, for my little girl — about why our family brings light to the door, not darkness.</p>
+            <a class="row-more" href="posts/what-i-couldnt-explain-when-you-were-four.html">Read more →</a>
+          </div>
         </article>
 
-        <article class="card card-featured">
-          <img class="card-icon" src="images/icon-puppy.svg" alt="">
-          <span class="tag">★ Start here</span>
-          <div class="date">October 21, 2026</div>
-          <h3><a href="posts/a-letter-to-my-children.html">A Letter to My Children</a></h3>
-          <p>Before I write about anything else, I want to start here — with why this place exists, and a few of the things I most want you to carry with you.</p>
-          <a class="more" href="posts/a-letter-to-my-children.html">Read the letter →</a>
+        <article class="post-row" data-category="letters">
+          <a class="row-thumb" href="posts/a-letter-to-my-children.html">
+            <img src="images/posts/a-letter-to-my-children.jpg" alt="" loading="lazy">
+          </a>
+          <div class="row-body">
+            <div class="row-meta"><span class="row-cat">Letters</span><span class="row-date">October 21, 2026</span></div>
+            <h3 class="row-title"><a href="posts/a-letter-to-my-children.html">A Letter to My Children</a></h3>
+            <p class="row-excerpt">Before I write about anything else, I want to start here — with why this place exists, and a few of the things I most want you to carry with you.</p>
+            <a class="row-more" href="posts/a-letter-to-my-children.html">Read more →</a>
+          </div>
         </article>
+      </main>
 
-      </div>
+      <aside class="sidebar">
+        <div class="side-card">
+          <h3 class="side-title">Browse by topic</h3>
+          <select id="categoryFilter" class="cat-select" aria-label="Filter posts by category">
+            <option value="all">All writing</option>
+            <option value="faith">Faith</option>
+            <option value="letters">Letters</option>
+          </select>
+        </div>
+
+        <div class="side-card">
+          <h3 class="side-title">About</h3>
+          <p class="side-about">I&#x27;m Bini. This is my notebook — letters, lessons, and memories I&#x27;m writing down for my children, one at a time.</p>
+          <a class="side-link" href="about.html">Read more →</a>
+        </div>
+      </aside>
+
     </div>
   </section>
 

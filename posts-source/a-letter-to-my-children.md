@@ -2,8 +2,8 @@
 title: A Letter to My Children
 date: October 21, 2026
 excerpt: Before I write about anything else, I want to start here — with why this place exists, and a few of the things I most want you to carry with you.
-featured: true
-tag: ★ Start here
+image: images/posts/a-letter-to-my-children.jpg
+category: Letters
 ---
 
 My dear children,
