@@ -1,6 +1,3 @@
-# security.txt — how to report a security concern about this site
-# (optional, best-practice courtesy file; harmless on a static blog)
-
 # This is a personal static blog hosted on GitHub Pages.
 # No accounts, no forms, no data collection.
 Preferred-Languages: en
