@@ -9,7 +9,7 @@ You never touch any HTML. You just write, then double-click build.
  STEP 1 — Make a new text file
 -------------------------------------------------------------------
 Go into the  posts-source\  folder.
-Copy an existing file (for example  why-we-dont-do-halloween.md )
+Copy an existing file (for example  a-letter-to-my-children.md )
 and give the copy a new name, using dashes instead of spaces, e.g.:
 
     the-day-you-were-born.md
@@ -26,7 +26,9 @@ At the very top, fill in this little block (keep the three dashes):
     ---
     title: The Day You Were Born
     date: October 25, 2026
-    excerpt: One or two sentences shown on the home page card.
+    excerpt: One or two sentences shown on the home page.
+    image: images/posts/the-day-you-were-born.jpg   (optional picture)
+    category: Memories                               (optional topic)
     ---
 
 Then just write below it. Normal writing. A blank line starts a new
@@ -38,13 +40,55 @@ Optional extras while writing:
   *a word*                ->  makes that word italic
   — Dad                   ->  a line like this becomes the sign-off
 
-To make a post the big "featured" one on the home page, add these
-two lines inside the top block:
-    featured: true
-    tag: ★ Start here
+About the two optional lines:
+  image:    a picture for the post. Put the picture file in the
+            images\posts\ folder first, then point to it here.
+            If you skip this line, a default picture is used.
+  category: groups the post under a topic. It shows as a little tag
+            and appears in the "Browse by topic" menu on the home page.
+            (Examples you've used: Letters, Faith, Memories.)
 
 -------------------------------------------------------------------
- STEP 3 — Build the site
+ ★ STEP 3 — THE PRIVACY CHECK (read this every time) ★
+-------------------------------------------------------------------
+Your blog is PUBLIC. Anyone with the link can read it, and once
+something is online you should treat it as permanent (people can
+copy, save, or screenshot it). So before you publish, run this
+quick check. You can be as open and heartfelt as you want about
+your FEELINGS, FAITH, and LESSONS — just stay private on the FACTS
+that could identify or locate your family.
+
+  DO NOT put in a post:
+    [ ] Your children's full names, birthdates, ages, or school
+    [ ] Photos that clearly show their faces
+    [ ] Your home address, street, or neighborhood
+    [ ] Your church/daycare name or regular places + times
+    [ ] Times the house is empty ("every Tuesday we're all out")
+    [ ] Phone numbers or financial details
+    [ ] Answers to password questions — first pet, first street,
+        mother's maiden name, exact birthdate (these get accounts
+        hacked)
+    [ ] Other people's names/stories without their okay
+
+  SAFE and good to share:
+    [ ] Your lessons, values, faith, reflections, advice
+    [ ] Memories told WITHOUT names/places/dates
+        ("when you were four, you asked me...")
+    [ ] First names or nicknames only — or just "my children"
+    [ ] General time ("years ago", "when you were little")
+    [ ] Prayers, encouragement, the timeless things
+
+  THREE QUICK QUESTIONS before you hit publish:
+    1. Could a stranger use this to find or identify my kids?
+       -> if yes, soften it.
+    2. Would my child be upset this is public when they're 20?
+       -> if maybe, keep it gentler or private.
+    3. Is any of this a password-recovery answer?
+       -> never publish it.
+  If it passes all three, it's safe to share.
+
+-------------------------------------------------------------------
+ STEP 4 — Build the site
 -------------------------------------------------------------------
 Save your file. Then double-click:  build.bat
 
@@ -53,13 +97,13 @@ Your new post now exists, and the home page lists it automatically
 (newest first).
 
 -------------------------------------------------------------------
- STEP 4 — See it
+ STEP 5 — See it, then publish
 -------------------------------------------------------------------
 Open  index.html  in your browser to read it locally.
 When you're happy, upload the whole folder to GitHub (see README.md)
 and it goes live at https://binieth.github.io
 
 -------------------------------------------------------------------
- That's the whole system. Write in posts-source, double-click build.
- You never have to copy code or touch the formatting again.
+ That's the whole system. Write in posts-source, run the privacy
+ check, double-click build. You never touch the formatting.
 ===================================================================
