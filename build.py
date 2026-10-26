@@ -121,7 +121,7 @@ def footer():
   </footer>'''
 
 
-def article_page(meta, body_html):
+def article_page(meta, body_html, nav_html=""):
     title = html.escape(meta.get("title", "Untitled"))
     date  = html.escape(meta.get("date", ""))
     desc  = html.escape(meta.get("excerpt", ""))
@@ -133,6 +133,7 @@ def article_page(meta, body_html):
 {HEAD}
   <title>{title} \u2014 {AUTHOR}</title>
   <meta name="description" content="{desc}">
+  <link rel="icon" type="image/svg+xml" href="../images/icon-puppy.svg">
   <link rel="stylesheet" href="../style.css">
 </head>
 <body>
@@ -154,6 +155,7 @@ def article_page(meta, body_html):
 {body_html}
 
         <hr>
+{nav_html}
         <a class="back-link" href="../index.html#writing">\u2190 Back to all writing</a>
       </article>
     </div>
@@ -174,12 +176,13 @@ def post_row(p):
     exc   = html.escape(p["excerpt"])
     slug  = p["slug"]
     img   = p["image"] or DEFAULT_THUMB
+    alt   = html.escape(p.get("alt") or ("Picture for: " + p["title"]))
     cat   = html.escape(p["category"]) if p["category"] else ""
     cat_tag = f'<span class="row-cat">{cat}</span>' if cat else ""
     data_cat = html.escape(p["category"].lower()) if p["category"] else "all"
     return f'''        <article class="post-row" data-category="{data_cat}">
           <a class="row-thumb" href="posts/{slug}.html">
-            <img src="{img}" alt="" loading="lazy">
+            <img src="{img}" alt="{alt}" loading="lazy">
           </a>
           <div class="row-body">
             <div class="row-meta">{cat_tag}<span class="row-date">{date}</span></div>
@@ -219,6 +222,7 @@ def index_page(rows_html, categories):
 {HEAD}
   <title>{AUTHOR} \u2014 Letters, Lessons &amp; Memories</title>
   <meta name="description" content="A quiet place where {AUTHOR} writes down lessons learned, mistakes made, and memories \u2014 notes meant one day for the children.">
+  <link rel="icon" type="image/svg+xml" href="images/icon-puppy.svg">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -266,47 +270,49 @@ def parse_date(s):
     return datetime.datetime.min
 
 
+def nav_block(newer, older):
+    def link(p, label, cls):
+        if not p: return '<span></span>'
+        return (f'<a class="{cls}" href="{p["slug"]}.html"><span class="nav-label">{label}</span>'
+                f'<span class="nav-title">{html.escape(p["title"])}</span></a>')
+    return ('        <nav class="post-nav">\n          ' + link(older, "\u2190 Older letter", "nav-prev")
+            + '\n          ' + link(newer, "Newer letter \u2192", "nav-next") + '\n        </nav>')
+
+
 def main():
     if not os.path.isdir(SRC):
-        print("No posts-source/ folder found. Nothing to build.")
-        return
+        print("No posts-source/ folder found. Nothing to build."); return
     os.makedirs(POSTS, exist_ok=True)
-
     posts = []
     for fn in os.listdir(SRC):
-        if not fn.lower().endswith(".md"):
-            continue
-        slug = os.path.splitext(fn)[0]
-        raw  = open(os.path.join(SRC, fn), encoding="utf-8").read()
+        if not fn.lower().endswith(".md"): continue
+        raw = open(os.path.join(SRC, fn), encoding="utf-8").read()
         meta, body = parse_front_matter(raw)
-
-        open(os.path.join(POSTS, slug + ".html"), "w", encoding="utf-8").write(
-            article_page(meta, md_to_html(body)))
-
-        posts.append({
-            "slug": slug,
-            "title": meta.get("title", slug),
-            "date": meta.get("date", ""),
-            "excerpt": meta.get("excerpt", ""),
-            "image": meta.get("image", ""),
-            "category": meta.get("category", ""),
-            "_sort": parse_date(meta.get("date", "")),
-        })
-        print(f"  built  posts/{slug}.html")
-
+        posts.append({"slug": os.path.splitext(fn)[0], "meta": meta, "body": body,
+            "title": meta.get("title", fn), "date": meta.get("date", ""),
+            "excerpt": meta.get("excerpt", ""), "image": meta.get("image", ""),
+            "alt": meta.get("alt", ""), "category": meta.get("category", ""),
+            "_sort": parse_date(meta.get("date", ""))})
     posts.sort(key=lambda p: p["_sort"], reverse=True)
 
-    rows = "\n\n".join(post_row(p) for p in posts)
+    for i, p in enumerate(posts):
+        newer = posts[i-1] if i > 0 else None
+        older = posts[i+1] if i+1 < len(posts) else None
+        open(os.path.join(POSTS, p["slug"] + ".html"), "w", encoding="utf-8").write(
+            article_page(p["meta"], md_to_html(p["body"]), nav_block(newer, older)))
+        print(f"  built  posts/{p['slug']}.html")
 
-    # unique categories, preserving first-seen order
     cats = []
     for p in posts:
-        c = p["category"]
-        if c and c not in cats:
-            cats.append(c)
+        if p["category"] and p["category"] not in cats: cats.append(p["category"])
+    open(INDEX, "w", encoding="utf-8").write(index_page("\n\n".join(post_row(p) for p in posts), cats))
 
-    open(INDEX, "w", encoding="utf-8").write(index_page(rows, cats))
-    print(f"  built  index.html  ({len(posts)} post(s), {len(cats)} categor(ies))")
+    site = "https://binieth.github.io/"
+    urls = [site, site + "about.html"] + [site + "posts/" + p["slug"] + ".html" for p in posts]
+    sm = ['<?xml version="1.0" encoding="UTF-8"?>', '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
+    sm += [f"  <url><loc>{u}</loc></url>" for u in urls] + ["</urlset>"]
+    open(os.path.join(HERE, "sitemap.xml"), "w", encoding="utf-8").write("\n".join(sm) + "\n")
+    print(f"  built  index.html + sitemap.xml  ({len(posts)} posts, {len(cats)} topics)")
     print("\nDone! Open index.html in your browser to see the result.")
 
 

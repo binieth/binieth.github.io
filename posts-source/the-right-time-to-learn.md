@@ -3,7 +3,7 @@ title: I Think I Was Early, and I Am Sorry
 date: January 15, 2026
 excerpt: A letter from Dad about teaching you your letters and numbers too soon, and the lesson it taught me about patience, grace, and the right time.
 image: images/posts/the-right-time-to-learn.jpg
-category: Letters
+category: Lessons
 ---
 
 *A letter from Dad, for my little girl.*

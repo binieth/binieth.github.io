@@ -281,6 +281,19 @@ article.post hr { border: none; border-top: 1px solid var(--line); margin: 44px 
   border-top: none;
 }
 
+/* ---------- Previous / next letter ---------- */
+.post-nav { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 0 0 28px; }
+.post-nav a {
+  display: block; padding: 16px 18px; border: 1px solid var(--line); border-radius: 12px;
+  background: var(--bg-card); text-decoration: none; transition: border-color .15s, transform .15s;
+}
+.post-nav a:hover { border-color: var(--accent); transform: translateY(-2px); }
+.post-nav .nav-next { text-align: right; }
+.nav-label { display: block; font-family: var(--sans); font-size: .72rem; letter-spacing: 1.2px;
+  text-transform: uppercase; color: var(--accent-dk); margin-bottom: 4px; }
+.nav-title { display: block; color: var(--ink); font-size: 1rem; line-height: 1.35; }
+@media (max-width: 600px) { .post-nav { grid-template-columns: 1fr; } .post-nav .nav-next { text-align: left; } }
+
 /* ============================================================
    RESPONSIVE
    ============================================================ */

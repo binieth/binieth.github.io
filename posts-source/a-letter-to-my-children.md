@@ -4,6 +4,7 @@ date: October 21, 2026
 excerpt: Before I write about anything else, I want to start here — with why this place exists, and a few of the things I most want you to carry with you.
 image: images/posts/a-letter-to-my-children.jpg
 category: Letters
+alt: A fountain pen writing a letter on lined paper
 ---
 
 My dear children,

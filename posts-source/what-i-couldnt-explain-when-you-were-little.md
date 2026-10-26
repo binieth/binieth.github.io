@@ -4,6 +4,7 @@ date: October 22, 2026
 excerpt: A short letter from Dad, for my little girl — about why our family brings light to the door, not darkness.
 image: images/posts/what-i-couldnt-explain-when-you-were-little.jpg
 category: Faith
+alt: Open doors leading into a bright, light-filled room
 ---
 
 *A short letter from Dad, for my little girl.*

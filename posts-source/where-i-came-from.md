@@ -1,52 +1,76 @@
 ---
-title: Where I Came From, and Where I Am Going
+title: Where I Came From
 date: June 21, 2026
-excerpt: A letter from Dad about my own childhood — the poverty and the plenty, the love I had and the love I missed — and how God turned all of it into purpose.
+excerpt: A letter from Dad about my own childhood: the two homes I grew up in, the mother I barely knew, and the road that brought me here.
 image: images/posts/where-i-came-from.jpg
-category: Letters
+category: Our Family Story
 ---
 
 *A letter from Dad, for my children.*
 
 My dear children,
 
-One day you will want to know who your father was before he was your father. So let me tell you, honestly, the way I always will.
+One day you will want to know who your father was before he was your father. So let me tell you, honestly.
 
-I was born in Addis Ababa, Ethiopia. I did not have the kind of start many children have. My parents were young, and they were not married when they had me. In the eyes of the world I was an accident. But I have never believed that, not for one day. In God's eyes I was born on purpose, for His purpose — and what God says about me matters more than anything my mother or father could say.
+## How my life began
 
-I have never once asked either of them how I came to be. I do not need to. Like every child of Adam, I had no say in it, so I carry no shame about it. It is simply where my story begins.
+I was born in Addis Ababa, Ethiopia. My parents were young and not married. My father was just starting university. In that time and place, having a baby outside of marriage was seen as a great shame for a family, so both of my parents tried to hide it. My father said I was not his. My mother could not hide it. Her family was very angry, so she gave birth to me at her aunt's house. Then she left me with her parents and moved to another city on her own.
 
-I was raised by both sides of my family, and they could not have been more different. My mother's side was very poor. There were days with nothing to eat. We did not always have proper clothes, or even the things you need to stay clean. Poverty was real, and I felt it. And yet — this is the strange part — on that side I was loved. I have no bad memory of them. I was free there. I played outside all day and came home only to eat, to sleep, or to help with a chore.
+My father kept denying it for years. Then he won a lottery visa to come to America. Once he was here, he finally told his mother the truth. By then it was hard to hide anyway. My parents had lived close to each other, the neighbors knew, and as I grew, people could see that I looked just like my father. After he told the truth, his mother and my mother's mother began to work things out between the two families.
 
-My father's side had much more. They gave me most of what a body could need. But the one thing I needed most was missing there. I never felt at home. I had plenty, and I was lonely in the middle of it. That taught me something I have never forgotten: a full table is not the same as a full heart.
+Some would call me an accident. I never have. I believe I was born on purpose, and I carry no shame about how my story began.
 
-Let me tell you about my mother. For a time she lived in another city. While I was still very small, my grandmother once took me there to visit her for a whole summer. It was just the two of us — my mother and me. I had a wonderful time. I was loved and cared for, and I still hold that summer close to my heart. It is one of my happiest memories.
+## My first home
 
-In those years she had married a man in that city, and together they had a son — my half-brother. But then her husband died, and everything changed for her. His own parents had already passed away, so it was his distant relatives who turned on her. The man had left behind some property — trucks, a rental house, and the home they lived in — and those relatives wanted all of it for themselves. In that place, in those days, a woman's rights were not respected the way they should be, and there was no one close to stand up for her. They made life hell for her — there is no softer word for it — until she had to leave that city and come back to Addis Ababa. She brought my half-brother with her, and the two of them moved in with her own mother — my grandmother. She had no work. She lived on what little she had saved, and when that ran out she began selling her jewelry, piece by piece, until there was nothing left.
+I spent my early years with my mother's family. My grandmother's name was Wogayew. She sold things at the open market nearby to get by, and she carried a lot on her own shoulders. They did not have much, but they had a lot of love. I have no bad memory of them.
 
-Not long after she came back, she became sick. I do not fully know what the illness was. What I know is that the doctors sent her home because they knew they could not save her. She went back to her own mother's house — the same house where she herself had been born — and she passed away there, with her mother and her little boy near her. I was about twelve. I have often thought that in a country with better hospitals she might have lived. So many people there die simply because the care is not there. But I will never know the whole truth of it, and I have made my peace with that.
+I was free there. I played outside all day with the neighborhood kids, went to school, and came home to eat, to sleep, or to help with a chore.
 
-I did not meet my own father face to face until I was in grade school, when he came from the United States to visit. Before that he was only a voice on the phone and a few photographs. Because of him and his mother, I received a good education and the things I needed. His mother loved me and cared for me, and I will be grateful for her all my life. May she rest in peace — she was loved and respected by many. From the rest of that side of the family I received very little, and that is the part that made my childhood hard. You do not need the details; I will carry them to the grave. Some things we hand to God and do not pass on.
+## My second home
 
-I came to America because of my father, when I was about seventeen, and I am grateful for it. He did his best to send me to a good school. But he and I never really had a father-and-son closeness, because we had never spent the time together to build it — and that is a hard thing to start when you are already grown. In my last year of school, life became difficult for him, and that reached me too. Still, I worked hard. I kept my grades above a 4.0, and I went on to university in California. And then, for a season, I stepped away from nearly all of my relatives.
+When I was about 6 or 7, my father's mother came and took me to live with my father's family. I still don't know how the grown-ups decided this. I only know I hated it. Several times I ran away and walked all the way back to my mother's family. Each time I was sent back. In the end I settled in, and I lived there until I came to America.
 
-My father is still living, here in the States. He has built a good life, remarried, and has four children — three girls and a boy. We talk from time to time, when things are good between us. His wife has always been kind to me, and she tries to build the bridge whenever she can. I am thankful for that. Time and God have a way of softening things that once felt too hard to touch.
+Life there was very different. They gave me most of what I needed: good schooling, good clothes, a roof over my head. But I never felt at home. We were not allowed to play outside. We stayed indoors unless we were going to school or going somewhere together. I lived with a cousin who was a couple of years older than me. We wore the same kind of clothes and shared a room, but we never got along. He had his friends and I had mine.
 
-I met your mother through a friend. I will not lay out the whole story, but we knew quickly, and we were married young, in our twenties, at a courthouse. We have been married ever since — and by the grace of God, we still are.
+So books became my friends. That is where my love of reading started.
 
-I will be honest about my faith in those years: it was in a bad place. Then one day I stumbled, almost by accident, onto a sermon by a brother named Zac Poonen on the internet. Something broke open in me. I began to take God seriously. Through that teaching, and old Christian books, and the grace of God, everything changed. We later made our home in Ohio, where your mother had gone to school, and that is how we came to be here.
+I still loved to play, though. When no one was home, I would sneak out to play soccer and other games. If I got caught, I was punished. If I was lucky, someone warned me in time, and I ran back inside and acted like I had never left.
 
-Now let me tell you a few small, ordinary things about your father, so you remember the man and not only his story. I love soccer — it is my favorite game to watch and to play. I love a good cup of coffee, the way my people have for generations. I love to read; a good book is one of my quiet joys. And I love working with my hands, fixing and building things around the house. These are small things, but they are me, and I hope you will remember your dad in them.
+My father's mother loved me and cared for me, and I will always be grateful for her. May she rest in peace. She was loved and respected by many. From the rest of that side of the family, I received very little, and that made my childhood hard. You do not need the details. Some things I will keep to myself.
 
-And then God blessed us with you — every single one of you. You changed our lives, and we would not trade you for anything in this world. We love you with our whole hearts.
+My happiest memories from those years are playing games with my friends, and school. I loved school, and I was a good student.
 
-As your parents, we are trying to train you up in the way you should go. My deepest hope is that God would be well pleased — first with my own life, then your mother's, and then with each of you. By His grace we will get there. We just keep marching, trying to become more like Christ in every part of life. That is my job as your father, and God helps me do it.
+## My mother
 
-So here is how I want you to see me. I am your earthly father, yes. But more than that, I am someone running ahead of you on the same road — a man bought by the blood of Jesus, for His glory.
+I did not know my mother well, but I remember who she was. She was outgoing and had lots of friends. She loved music and had a big collection of cassette tapes. She liked to dress nicely, to have fun, and to wear her jewelry.
 
-And I want to be very clear with you about one thing, because many Christians are not. I do not believe that once a person is saved they can simply coast, sure they are safe no matter how they live. The Bible warns us otherwise. Think of the people God brought out of Egypt: they were rescued, they walked out free — and yet a whole generation fell in the wilderness and never entered the promised land, because they stopped believing and stopped following. *"So we see that they were not able to enter because of unbelief."* (Hebrews 3:19) That is a warning for me, too. Being rescued at the start is not the same as finishing the journey.
+When I was very small, my grandmother took me to visit her for a whole summer. It was just the two of us, my mother and me. I was loved and cared for, and it is still one of my happiest memories. Later, while I was living with my father's family, she came to Addis to visit her mother and stopped by to see me. She picked me up, took me to a café nearby, and bought me a soft drink and a piece of cake. I still remember that.
 
-So I do not take my salvation for granted. I press on. I keep my eyes on the promise, because I know that if I ever let go of it — if I ever lost hope in it — I would be lost. I am not willing to lose sight of it. So I keep walking in righteousness, trying to become more like Christ — myself first, and then with your mother and all of you right beside me. That is the journey. We walk it together, all the way home.
+In her city she married and had a son, my half-brother. When her husband died, his parents had already passed away, and his distant relatives wanted everything he had left: his trucks, a rental house, and their home. In those days a woman's rights were not respected, and no one stood up for her. They made her life very hard until she had to leave and come back to Addis. She and my half-brother moved in with her mother. She had no job, and over time she lost everything she had.
+
+Not long after, she became sick. The doctors sent her home because they knew they could not save her. She passed away in her mother's house, the same house where she was born. I was about twelve.
+
+I did not grow up with my half-brother, and I don't know much about him beyond his name. We are not in touch.
+
+## Coming to America
+
+I did not meet my father face to face until I was in fourth or fifth grade, when he came to visit. Before that, he was a voice on the phone and a few photographs. Because of him, I came to America at about seventeen. It was a dream come true, and I was so excited. I only knew basic English, from school and from watching movies and listening to music.
+
+My father did his best to send me to a good school. But we never really had a father-and-son bond. We had not spent the years together to build one, and that is hard to start when you are almost grown. In my last year of school, things got hard for him, and that reached me too. Still, I worked hard, kept my grades above a 4.0, and went on to university in California.
+
+Today my father lives here in the States. He has remarried and has four children, three girls and a boy. We talk from time to time, when things are good between us. His wife has always been kind to me, and she tries to build the bridge when she can. I am thankful for that.
+
+## Your mother and me
+
+I met your mother through a friend. We knew quickly, and we married young, in our twenties, at a courthouse. We are still together today. Later we moved to Ohio, where your mother had gone to school, and we made our home here.
+
+Somewhere along the way, my faith was in a bad place. Then one day I came across a sermon by a brother named Zac Poonen, almost by accident. It changed the direction of my life. That story deserves its own letter, so I will save it for another day.
+
+## A few things about me
+
+I love soccer. It started with those games I snuck out to play. I love a good cup of coffee. I love to read, a habit from the years when books were my friends. And I love working with my hands, fixing and building things around the house.
+
+That is where I came from. I hope it helps you understand a little more about your dad.
 
 Love,
 
